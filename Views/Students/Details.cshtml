@@ -1,0 +1,108 @@
+﻿@model AttendanceSystem.Models.Student
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-center" style="        color: #81b69d
+">@Model.Name</h1>
+
+<div>
+    <h4 class="text-center" style="        color: #81b69d">@Model.AcademicYear</h4>
+
+    <h4 class="text-center" style="        color: #81b69d"> Birthday: @Model.Birthday.ToShortDateString()</h4>
+    <hr />
+
+    <h2 class="text-center" style="        color: #152238
+">
+        Attendance Details and Time
+    </h2>
+    <table class="table table-hover text-center border">
+        <thead class="thead text-white" style="        background-color: #81b69d
+">
+
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">ID</th>
+                <th scope="col">Date</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Attendance in Model.Attendance)
+            {
+                <tr>
+                    <th scope="row">1</th>
+                    <td> @Attendance.Id</td>
+                    <td> @Attendance.Time.ToShortDateString()</td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+    <h2 class="text-center" style="        color: #152238
+">
+        QualityTime Details and Time
+    </h2>
+    <table class="table table-hover text-center border">
+        <thead class="thead text-white" style="        background-color: #81b69d
+">
+
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">ID</th>
+                <th scope="col">Date</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var QualityTime in Model.QualityTime)
+            {
+                <tr>
+                    <th scope="row">1</th>
+                    <td> @QualityTime.Id</td>
+                    <td> @QualityTime.Time.ToShortDateString()</td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <h2 class="text-center" style="        color: #152238
+">
+        Memorization Details and Time
+    </h2>
+    <table class="table table-hover text-center border">
+        <thead class="thead text-white" style="        background-color: #81b69d
+">
+
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">ID</th>
+                <th scope="col">Date</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Memo in Model.Memorization)
+            {
+                <tr>
+                    <th scope="row">1</th>
+                    <td> @Memo.Id</td>
+                    <td> @Memo.Time.ToShortDateString()</td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+
+</div> 

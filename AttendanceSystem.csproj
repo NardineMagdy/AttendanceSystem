@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-AttendanceSystem-5FAC8FFA-2AA3-40DF-BEB6-AA0607D9BB94</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20200925221306_IdentityUser.cs" />
+    <Compile Remove="Data\Migrations\20200925221306_IdentityUser.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200928105255_NewMigrationRegister.cs" />
+    <Compile Remove="Data\Migrations\20200928105255_NewMigrationRegister.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200928185646_NewMigration.cs" />
+    <Compile Remove="Data\Migrations\20200928185646_NewMigration.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200928202955_AddNewMigration.cs" />
+    <Compile Remove="Data\Migrations\20200928202955_AddNewMigration.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200928222642_NewMigration.cs" />
+    <Compile Remove="Data\Migrations\20200928222642_NewMigration.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\lib\chosenjs\chosen.jquery.js" />
+    <None Include="wwwroot\lib\chosenjs\chosen.jquery.min.js" />
+    <None Include="wwwroot\lib\chosenjs\chosen.proto.js" />
+    <None Include="wwwroot\lib\chosenjs\chosen.proto.min.js" />
+    <None Include="wwwroot\lib\chosenjs\docsupport\init.js" />
+    <None Include="wwwroot\lib\chosenjs\docsupport\init.proto.js" />
+    <None Include="wwwroot\lib\chosenjs\docsupport\jquery-1.12.4.min.js" />
+    <None Include="wwwroot\lib\chosenjs\docsupport\jquery-3.2.1.min.js" />
+    <None Include="wwwroot\lib\chosenjs\docsupport\prism.js" />
+    <None Include="wwwroot\lib\chosenjs\docsupport\prototype-1.7.0.0.js" />
+    <None Include="wwwroot\lib\chosenjs\LICENSE.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+  </ItemGroup>
+
+</Project>

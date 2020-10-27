@@ -1,0 +1,112 @@
+﻿@model IEnumerable<AttendanceSystem.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Memorization</h1>
+<h4> Teacher Name:</h4>
+
+<p>
+    <a class="  btn btn-primary  text-white table-bordered active" asp-action="Create">Create New</a>
+</p>
+<div class="active-cyan-3 active-cyan-4 mb-4">
+
+    <input   class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." aria-label="Search">
+</div>
+
+<table id ="myTable" class="table table-hover table-bordered">
+    <thead class="thead text-white" style="        background-color: #81b69d">
+   
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcademicYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Birthday)
+            </th>
+            <th>
+                Total Memorization (@TempData["Region"])
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AcademicYear)
+                </td>
+                <td>
+                    @Convert.ToDateTime(item.Birthday).ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @item.Memorization.Count()
+                </td>
+                <td>
+
+
+                    @if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday)
+                    {
+                        if (TempData["CheckButton"] == null)
+                        {
+
+                            <a class=" btn btn-primary  text-white table-bordered active" asp-controller="Students" asp-action="TakeMemorization" asp-route-id="@item.Id">Memorization</a>
+                        }
+                        else if (TempData["CheckButton"].ToString() != item.Id.ToString())
+                        {
+                            <a class=" btn btn-primary  text-white table-bordered active" asp-controller="Students" asp-action="TakeMemorization" asp-route-id="@item.Id">Memorization</a>
+
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+@if (TempData["Memorization"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Memorization Taken',
+            text: 'Saved to database!',
+
+        })
+    </script>
+}
+<script>
+    function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+</script>
+
